@@ -7,6 +7,8 @@ module.exports = app;
 app.use(helmet.hidePoweredBy());
 app.use(helmet.frameguard({action: 'deny'}));
 app.use(helmet.xssFilter());
+app.use(helmet.noSniff());
+
 const api = require('./server.js');
 
 app.use(express.static('public'));
