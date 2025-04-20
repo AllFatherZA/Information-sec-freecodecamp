@@ -5,6 +5,7 @@ module.exports = app;
 
 
 app.use(helmet.hidePoweredBy());
+app.use(helmet.frameguard({action: 'deny'}));
 const api = require('./server.js');
 
 app.use(express.static('public'));
