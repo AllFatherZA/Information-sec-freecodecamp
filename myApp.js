@@ -10,9 +10,8 @@ app.use(helmet.xssFilter());
 app.use(helmet.noSniff());
 app.use(helmet.ieNoOpen());
 app.use(helmet.hsts());
-app.use( helmet.hsts({maxAge: timeInSeconds, force: true}))
 const timeInSeconds = 90*24*60*60;
-
+app.use( helmet.hsts({maxAge: timeInSeconds, force: true}));
 const api = require('./server.js');
 
 app.use(express.static('public'));
