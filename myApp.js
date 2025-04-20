@@ -1,11 +1,12 @@
 const express = require('express');
 const helmet = require('helmet');
 const app = express();
-
-const PORT =process.env.PORT || 3030;
-
 module.exports = app;
+
+
+app.use(helmet.hidePoweredBy());
 const api = require('./server.js');
+
 app.use(express.static('public'));
 app.disable('strict-transport-security');
 app.use('/_api', api);
@@ -14,5 +15,5 @@ app.get("/", function (request, response) {
 });
 let port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log(`AllfatherZA server started on port ${PORT}`);
+  console.log(`AllfatherZA server started on port ${port}`);
 });
